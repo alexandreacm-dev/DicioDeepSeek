@@ -14,7 +14,9 @@ const Header = () => {
       }}
     >
       <View>
-        <Text style={{ textAlign: "auto" }}>HEADER</Text>
+        <Text style={{ textAlign: "auto", fontFamily: "Inter_700Bold" }}>
+          HEADER
+        </Text>
       </View>
     </View>
   );
@@ -25,7 +27,15 @@ export default function Definition() {
     <>
       <Header />
       <View>
-        <Text>Definition</Text>
+        <Text
+          style={{
+            textAlign: "auto",
+            fontFamily: "Inter_900Black",
+            fontSize: 30,
+          }}
+        >
+          Definition
+        </Text>
       </View>
     </>
   );
