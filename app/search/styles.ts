@@ -4,11 +4,11 @@ import { DefaultTheme } from 'styled-components/dist/models/ThemeProvider';
 import styled, { css } from 'styled-components/native'
 
 type ThemeProp = {
-   theme: DefaultTheme
+  theme: DefaultTheme
 };
 
 const Container = styled.ScrollView.attrs({
-   showsVerticalScrollIndicator: false
+  showsVerticalScrollIndicator: false
 })`
   ${({ theme }: ThemeProp) => css`
     flex: 1;
@@ -111,16 +111,16 @@ const MoreWordsContainer = styled.View<ViewProps>`
 
 
 export {
-   Container,
-   WordDayContainer,
-   TouchableSeeMeans,
-   TitleContainer,
-   VocabularyContainer,
-   ButtonContainer,
-   PressableButton,
-   IncreaseWordsContainer,
-   IncreaseButtonsContainer,
-   WordContainer,
-   StatusWordContainer,
-   MoreWordsContainer
+  Container,
+  WordDayContainer,
+  TouchableSeeMeans,
+  TitleContainer,
+  VocabularyContainer,
+  ButtonContainer,
+  PressableButton,
+  IncreaseWordsContainer,
+  IncreaseButtonsContainer,
+  WordContainer,
+  StatusWordContainer,
+  MoreWordsContainer
 }
