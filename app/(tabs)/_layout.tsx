@@ -1,8 +1,8 @@
 import { Tabs } from "expo-router";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Entypo from "@expo/vector-icons/Entypo";
 import { Colors } from "../constants/Colors";
 import { View, Text } from "react-native";
-import Theme from "@/app/styles/dark";
 
 export default function TabLayout() {
   return (
@@ -46,19 +46,9 @@ export default function TabLayout() {
         name="index"
         options={{
           headerTitle: "",
-          title: "Definição",
+          title: "Dicionário",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="settings" size={35} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="classification"
-        options={{
-          headerTitle: "",
-          title: "Classificação",
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="edit-square" size={35} color={color} />
+            <Entypo name="book" size={35} color={color} />
           ),
         }}
       />
@@ -69,6 +59,24 @@ export default function TabLayout() {
           title: "Sugestões",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="email" size={35} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          // headerLeft: () => {
+          //   return (
+          //     <View>
+          //       <MaterialIcons name="arrow-back-ios" size={20} color="black" />
+          //     </View>
+          //   );
+          // },
+          headerTitle: "",
+
+          title: "Definição",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="settings" size={35} color={color} />
           ),
         }}
       />

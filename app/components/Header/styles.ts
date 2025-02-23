@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components/native'
 
 const HeaderContainer = styled.View<ViewProps>`
   ${({ theme }: { theme: DefaultTheme }) => css`
-     width: 100%;
+    width: 100%;
     padding: 15px;
     background-color: ${({ theme }) => theme.colors.primary};
     justify-content: center;

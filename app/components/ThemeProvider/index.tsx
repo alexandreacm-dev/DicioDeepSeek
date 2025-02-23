@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider as DefaultThemeProvider } from "styled-components/native";
-import theme from "@/app/styles";
+import lightTheme from "@/app/styles/light";
 
 type Props = {
   children: React.ReactNode;
@@ -8,6 +8,6 @@ type Props = {
 
 export default function ThemeProvider({ children }: Props) {
   return (
-    <DefaultThemeProvider theme={theme.dark}>{children}</DefaultThemeProvider>
+    <DefaultThemeProvider theme={lightTheme}>{children}</DefaultThemeProvider>
   );
 }

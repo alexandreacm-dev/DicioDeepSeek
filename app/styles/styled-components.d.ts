@@ -1,8 +1,8 @@
 import "styled-components/native";
-import theme from "@/app/styles";
+import defaultTheme from "@/app/styles/light";
 
-type ThemeType = typeof theme.dark;
+type ThemeType = typeof defaultTheme;
 
 declare module "styled-components/native" {
-    export interface Theme extends ThemeType { }
+    export interface DefaultTheme extends ThemeType { }
 }

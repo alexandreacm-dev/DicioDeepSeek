@@ -22,11 +22,6 @@ export default {
         Inter_700_Bold: 'Inter_700Bold',
         Inter_900_Black: 'Inter_900Black',
     },
-    fonts_weight: {
-        regular: 400,
-        medium: 500,
-        bold: 700,
-    },
     font_size: {
         caption: '12px',
         button: '14px',
