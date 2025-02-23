@@ -1,8 +1,10 @@
 import { Tabs } from "expo-router";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Entypo from "@expo/vector-icons/Entypo";
+import AntDesign from "@expo/vector-icons/AntDesign";
+
 import { Colors } from "../constants/Colors";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -53,27 +55,29 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="suggestion"
+        name="historical"
         options={{
           headerTitle: "",
-          title: "Sugestões",
+          title: "Histórico",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="email" size={35} color={color} />
+            <AntDesign name="clockcircle" size={35} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          headerTitle: "",
+          title: "Favoritos",
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="heart" size={35} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          // headerLeft: () => {
-          //   return (
-          //     <View>
-          //       <MaterialIcons name="arrow-back-ios" size={20} color="black" />
-          //     </View>
-          //   );
-          // },
           headerTitle: "",
-
           title: "Definição",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="settings" size={35} color={color} />

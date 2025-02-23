@@ -6322,6 +6322,13 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-circular-progress@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-circular-progress/-/react-native-circular-progress-1.4.1.tgz#46d94e73e5973bb415937b912ba56ce1947f66b7"
+  integrity sha512-HEzvI0WPuWvsCgWE3Ff2HBTMgAEQB2GvTFw0KHyD/t1STAlDDRiolu0mEGhVvihKR3jJu3v3V4qzvSklY/7XzQ==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-native-gesture-handler@~2.20.2:
   version "2.20.2"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.20.2.tgz"
@@ -6362,6 +6369,11 @@ react-native-reanimated@~3.16.1:
     "@babel/preset-typescript" "^7.16.7"
     convert-source-map "^2.0.0"
     invariant "^2.2.4"
+
+react-native-rounded-progress-bar@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-rounded-progress-bar/-/react-native-rounded-progress-bar-0.3.2.tgz#ff4e2872ad4114a2ae74389a4324446dbca8d485"
+  integrity sha512-94SD4McuuiQyAQnEWd7389mRMbystm1Iq4jL6taV/6fD3SiHLbnxNCDfR+GkYRUtJlnrUBYB2JXVtMbiCKbhRw==
 
 react-native-safe-area-context@4.12.0:
   version "4.12.0"

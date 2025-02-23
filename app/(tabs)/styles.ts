@@ -45,10 +45,82 @@ const TitleContainer = styled.View`
    align-items: center;
 `;
 
+const VocabularyContainer = styled.View`
+   width: 15%;
+   justify-content: center;
+   align-items: center;
+`;
+
+const IncreaseButtonsContainer = styled.View<ViewProps>`
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+`;
+
+const ButtonContainer = styled.View`
+   width: 100%;
+   padding: 10px;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+`;
+
+const WordContainer = styled.View`
+   width: 100%;
+   padding: 10px;
+    align-items: center;
+`;
+
+const PressableButton = styled.Pressable`
+   flex: 1;
+   height: 45px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 8px;
+   margin-left: 10px;
+   ${({ theme }: DefaultTheme) => css`
+     background: ${({ theme }) => theme.colors.buttonColor};
+   `}
+`;
+
+const IncreaseWordsContainer = styled.View<ViewProps>`
+    flex: 1;
+    padding: 10px;
+    flex-direction: row;
+    border-radius: 14px;
+    background-color: #FFF;
+`;
+
+const StatusWordContainer = styled.View`
+   width: 60px;
+   height: 55px;
+   justify-content: center;
+   align-items: center;
+   /* border-radius: 50px;
+   border-width: 2px;
+   border-color: #b4b4b9; */
+`;
+
+const MoreWordsContainer = styled.View<ViewProps>`
+    flex: 1;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: #FFF;
+    margin-top: 10px;
+`;
+
 
 export {
   Container,
   WordDayContainer,
   TouchableSeeMeans,
-  TitleContainer
+  TitleContainer,
+  VocabularyContainer,
+  ButtonContainer,
+  PressableButton,
+  IncreaseWordsContainer,
+  IncreaseButtonsContainer,
+  WordContainer,
+  StatusWordContainer,
+  MoreWordsContainer
 }

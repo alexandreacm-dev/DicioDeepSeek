@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 20,
     color: "#000",
-    marginTop: 10,
   },
   defaultSemiBold: {
     fontSize: 16,
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
   link: {
     lineHeight: 20,
     fontSize: 16,
-    color: "#0f60a6",
+    color: theme.colors.buttonColor,
     fontWeight: "600",
     fontFamily: theme.fonts.Inter_600_SemiBold,
   },

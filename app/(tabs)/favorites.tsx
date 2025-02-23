@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function Suggestion() {
+export default function Favorites() {
   return (
     <View>
-      <Text>SUGGESTIONS</Text>
+      <Text>favorites</Text>
     </View>
   );
 }

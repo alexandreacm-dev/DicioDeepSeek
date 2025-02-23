@@ -13,7 +13,6 @@ import "react-native-reanimated";
 import useGoogleFonts from "./hooks/useGoogleFonts";
 // import ThemeProvider from "./components/ThemeProvider";
 // import { ThemeProvider } from "styled-components/native";
-import theme from "./styles";
 import ThemeProvider from "./components/ThemeProvider";
 
 SplashScreen.preventAutoHideAsync();
