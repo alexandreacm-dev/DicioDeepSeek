@@ -4,24 +4,13 @@ const tintColorDark = '#fff';
 export default {
     //TOKENS
     colors: {
-        light: {
-            text: '#11181C',
-            background: '#f3f3f3',
-            tint: tintColorLight,
-            icon: '#687076',
-            tabIconDefault: '#687076',
-            tabIconSelected: tintColorLight,
-            header: '#7ae2ff'
-        },
-        dark: {
-            text: '#ECEDEE',
-            background: '#151718',
-            tint: tintColorDark,
-            icon: '#9BA1A6',
-            tabIconDefault: '#9BA1A6',
-            tabIconSelected: tintColorDark,
-            header: '#7ae2ff'
-        }
+        primary: '#7ae2ff',
+        text: '#11181C',
+        background: '#f3f3f3',
+        tint: tintColorLight,
+        icon: '#687076',
+        tabIconDefault: '#687076',
+        tabIconSelected: tintColorLight,
     },
     fonts: {
         Inter_100: 'Inter_100Thin',

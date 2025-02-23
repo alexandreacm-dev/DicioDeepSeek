@@ -5,12 +5,15 @@ import { StatusBar } from "expo-status-bar";
 //   DefaultTheme,
 //   ThemeProvider,
 // } from "@react-navigation/native";
-import { Slot } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 
 import "react-native-reanimated";
-import { useColorScheme } from "./hooks/useColorScheme";
+// import { useColorScheme } from "./hooks/useColorScheme";
 import useGoogleFonts from "./hooks/useGoogleFonts";
+// import ThemeProvider from "./components/ThemeProvider";
+// import { ThemeProvider } from "styled-components/native";
+import theme from "./styles";
 import ThemeProvider from "./components/ThemeProvider";
 
 SplashScreen.preventAutoHideAsync();

@@ -2,6 +2,7 @@ import { Tabs } from "expo-router";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Colors } from "../constants/Colors";
 import { View, Text } from "react-native";
+import Theme from "@/app/styles/dark";
 
 export default function TabLayout() {
   return (
@@ -33,12 +34,12 @@ export default function TabLayout() {
             <View
               style={{
                 flex: 1,
-                backgroundColor: Colors.dark.header,
+                backgroundColor: "#7ae2ff",
               }}
             />
           );
         },
-        tabBarActiveTintColor: "#0c9fd5",
+        tabBarActiveTintColor: "#0a7ea4",
       }}
     >
       <Tabs.Screen

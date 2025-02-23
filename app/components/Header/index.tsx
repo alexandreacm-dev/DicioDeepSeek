@@ -1,12 +1,10 @@
-import { View, Text } from "react-native";
-import * as Style from "./styles";
+import * as S from "./styles";
+import DicioLogo from "@/app/assets/images/dicio-logo.svg";
 
 export default function Header() {
   return (
-    <Style.HeaderContainer>
-      <Text style={{ textAlign: "auto", fontFamily: "Inter_700Bold" }}>
-        HEADER
-      </Text>
-    </Style.HeaderContainer>
+    <S.HeaderContainer>
+      <DicioLogo />
+    </S.HeaderContainer>
   );
 }
