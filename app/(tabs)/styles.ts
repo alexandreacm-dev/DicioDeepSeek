@@ -101,9 +101,9 @@ const StatusWordContainer = styled.View`
    border-color: #b4b4b9; */
 `;
 
-const MoreWordsContainer = styled.View<ViewProps>`
+const MostSearchedContainer = styled.View<ViewProps>`
     flex: 1;
-    padding: 10px;
+    padding: 15px;
     border-radius: 14px;
     background-color: #FFF;
     margin-top: 10px;
@@ -122,5 +122,5 @@ export {
    IncreaseButtonsContainer,
    WordContainer,
    StatusWordContainer,
-   MoreWordsContainer
+   MostSearchedContainer
 }

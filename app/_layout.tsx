@@ -14,6 +14,7 @@ import useGoogleFonts from "./hooks/useGoogleFonts";
 // import ThemeProvider from "./components/ThemeProvider";
 // import { ThemeProvider } from "styled-components/native";
 import ThemeProvider from "./components/ThemeProvider";
+import AppContextProvider from "./contexts/app.context";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -50,7 +51,9 @@ export default function RootLayout() {
     // <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
     <ThemeProvider>
       <StatusBar style="auto" />
-      <RootNavigation />
+      <AppContextProvider>
+        <RootNavigation />
+      </AppContextProvider>
     </ThemeProvider>
   );
 }

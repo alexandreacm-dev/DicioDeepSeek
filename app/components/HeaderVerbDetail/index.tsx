@@ -10,7 +10,7 @@ type Props = {
 
 const HeaderVerbDetail: React.FC<Props> = ({ selectedWord }) => {
   const { back } = useRouter();
-  const [word, setWord] = useState(selectedWord);
+  const [search, setSearch] = useState(selectedWord);
 
   return (
     <S.HeaderContainer>
@@ -21,8 +21,8 @@ const HeaderVerbDetail: React.FC<Props> = ({ selectedWord }) => {
         </S.SearchPressable>
         <S.Input
           placeholder="Buscar no Dicionário"
-          value={word}
-          onChangeText={setWord}
+          value={search}
+          onChangeText={setSearch}
         />
       </S.InputContainer>
     </S.HeaderContainer>

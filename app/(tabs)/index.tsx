@@ -1,53 +1,34 @@
 import { useState } from "react";
+import { FlatList, ScrollView, View } from "react-native";
 import Header from "@/app/components/Header";
-import * as S from "./styles";
 import { Text } from "../components/Text";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
-import { randomWordsApi, bestWordsApi, dayWord } from "../constants/mock-api";
+import { randomWordsApi, dayWord, mostSearched } from "../constants/mock-api";
 import { router } from "expo-router";
+import * as S from "./styles";
+import { useAppContext } from "../contexts/app.context";
+
+interface Item {
+  id: number;
+  word: string;
+}
+
+type ItemProps = {
+  item: Item;
+};
+
+const deeSeekApikey = "sk-6fc96568de8d447eb09d6c60f8cab23e";
 
 export default function Definition() {
   const [randomNumber, setRandomNumber] = useState(0);
-
-  const [word, setWord] = useState("casa"); // Estado para armazenar a palavra digitada
-  const [definition, setDefinition] = useState(""); // Estado para armazenar a definição
-  const [loading, setLoading] = useState(false); // Estado para controlar o carregamento
-
-  const baseUrls = [
-    `https://api.dicionario-aberto.net/word/casa`,
-    `https://api.dicionario-aberto.net/near/${word}`,
-    `https://api.dicionario-aberto.net/browse/${word}`,
-  ];
+  const { setWord } = useAppContext();
 
   const generateRandomWord = () => {
     setRandomNumber(Math.floor(Math.random() * randomWordsApi.length));
   };
 
-  const searchWord = async () => {
-    if (!word) return;
-
-    setLoading(true);
-
-    try {
-      const response = await Promise.all(baseUrls.map((url) => fetch(url)));
-      const data = await Promise.all(
-        response.map(async (response) => await response.json())
-      );
-
-      if (data) {
-        setDefinition(data[0][0]);
-      } else {
-        setDefinition("Definição não encontrada.");
-      }
-    } catch (error) {
-      console.error(error);
-      setDefinition("Erro ao buscar a definição.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleDetailVerb = () => {
+    setWord("");
     router.push({
       pathname: "/search",
       params: {
@@ -55,6 +36,21 @@ export default function Definition() {
       },
     });
   };
+
+  const renderItem = ({ item }: ItemProps) => (
+    <View
+      style={{
+        flex: 1,
+        borderWidth: 0.8,
+        borderColor: "#808080",
+        padding: 10,
+        alignContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text>{item.word}</Text>
+    </View>
+  );
 
   return (
     <>
@@ -178,7 +174,7 @@ export default function Definition() {
             Mais Pesquisadas
           </Text>
         </S.TitleContainer>
-        <S.MoreWordsContainer
+        <S.MostSearchedContainer
           style={{
             shadowColor: "#000",
             shadowOffset: {
@@ -191,12 +187,23 @@ export default function Definition() {
             elevation: 5,
           }}
         >
-          <Text type="title" style={{ color: "#063859" }}>
-            alvíssaras
-          </Text>
-
-          <Text type="subtitle">Substantivo feminino plural</Text>
-        </S.MoreWordsContainer>
+          <ScrollView
+            horizontal
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              width: "100%",
+            }}
+          >
+            <FlatList
+              data={mostSearched}
+              renderItem={({ item }) => renderItem({ item })}
+              keyExtractor={(item) => String(item.id)}
+              numColumns={2}
+            />
+          </ScrollView>
+        </S.MostSearchedContainer>
       </S.Container>
     </>
   );
