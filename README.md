@@ -1,50 +1,102 @@
-# Welcome to your Expo app 👋
+<h1 align="center">
+  <img alt="" height="80" title="" src=".github/icLogo.png" />
+</h1>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=E51C44&labelColor=0A1033">
+</p>
 
-## Get started
+![cover](.github/cover.png?style=flat)
 
-1. Install dependencies
+## 💻 Project
 
-   ```bash
-   npm install
-   ```
+An example of Portuguese dictionary to search words by Api and on DeepSeek IA.
 
-2. Start the app
+# Team
 
-   ```bash
-    npx expo start
-   ```
+- Here must contain the names of everyone in the team, at the moment that
+  project is created
+  - React Native Engineer: Alexandre Marques
 
-In the output, you'll find options to open the app in a
+# To Navigation
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- expo-router.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Features
 
-## Get a fresh project
+- [ ] Search Words.
+- [ ] Storage Searched words.
+- [ ] Random words.
 
-When you're ready, run:
+## ✨ Technologies
 
-```bash
-npm run reset-project
+- [ ] Expo.
+- [ ] React Native.
+- [ ] Styled-components.
+- [ ] Commitizen
+- [ ] React Native Circular Progress
+
+## Running the project
+
+### Run Expo Environment
+
+```
+npx expo start / yarn start -c
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Run Native Development
 
-## Learn more
+**Install dependencies**
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+npm / yarn
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+**Install IOS Pods**
 
-## Join the community
+```
+cd ios && pod install
+```
 
-Join our community of developers creating universal apps.
+**Run IOS**
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+yarn ios
+```
+
+**Run Android**
+
+```
+yarn android
+```
+
+## Running the tests
+
+Use **yarn test** to execute the jest tests.
+
+```cl
+yarn test
+```
+
+<br />
+
+# Project Structure
+
+```bash
+  App
+    ├── (tabs)
+    ├── assets
+    │   └── images
+    ├── components
+    ├── constants
+    ├── contexts
+    ├── hooks
+    ├── models
+    ├── styles
+        └── dark
+        └── light
+```
+
+<div align="center">
+  <small>Developed By Alexandre Marques - 2025/Fev</small>
+</div>
