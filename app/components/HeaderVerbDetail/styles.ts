@@ -36,7 +36,7 @@ const Input = styled.TextInput`
   `}
 `;
 
-const SearchPressable = styled.Pressable`
+const GoBackPressable = styled.Pressable`
     height: 45px;
     width: 45px;
     text-align: center;
@@ -46,9 +46,26 @@ const SearchPressable = styled.Pressable`
     justify-content: center;
     align-items: center;
 `
+const SearchPressable = styled.Pressable`
+position: absolute;
+    right: 4px;
+    top: 4px;
+    height: 45px;
+    width: 45px;
+    padding: 0;
+    text-align: center;
+    border-radius: 100px;
+    background: #121212;
+    color: #fff;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+`
+
 export {
   HeaderContainer,
   InputContainer,
   Input,
+  GoBackPressable,
   SearchPressable
 }

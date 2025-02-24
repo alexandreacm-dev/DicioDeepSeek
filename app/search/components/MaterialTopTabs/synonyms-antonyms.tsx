@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
+import * as S from "./styles";
 
 export default function SynonymsAntonyms() {
   return (
-    <View>
-      <Text>MEAN</Text>
-    </View>
+    <S.PageContainer>
+      <Text>SynonymsAntonyms</Text>
+    </S.PageContainer>
   );
 }

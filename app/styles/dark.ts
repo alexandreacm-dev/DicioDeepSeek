@@ -5,6 +5,7 @@ export default {
     //TOKENS
     colors: {
         primary: '#7ae2ff',
+        secondaryColor: '#000000',
         text: '#11181C',
         background: '#f3f3f3',
         tint: tintColorLight,

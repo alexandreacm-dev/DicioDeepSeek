@@ -1,4 +1,4 @@
-interface ISearch {
+export interface ISearch {
     deletor: string;
     word: string;
     timestamp: string;
@@ -12,4 +12,15 @@ interface ISearch {
     word_id: number;
     creator: string;
     xml: string;
+}
+
+export interface Word {
+    id: number;
+    word: string;
+}
+
+export interface INextWords {
+    cword: string;
+    cid: number;
+    words: Array<Word>
 }
