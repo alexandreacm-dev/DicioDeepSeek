@@ -44,15 +44,6 @@ An example of Portuguese dictionary to search words by Api and on DeepSeek IA.
 npx expo start / yarn start -c
 ```
 
-### Run Expo Environment
-
-### To Test with DeepSeek IA
-
-```
-install ollama
-ollama run deepseek-r1:1.5b
-```
-
 **Install dependencies**
 
 ```
@@ -83,6 +74,15 @@ Use **yarn test** to execute the jest tests.
 
 ```cl
 yarn test
+```
+
+### Test with DeepSeek IA
+
+Use **ollama** to execute tests with DeepSeek IA.
+
+```
+install ollama by homebrew or package
+ollama run deepseek-r1:1.5b
 ```
 
 <br />
