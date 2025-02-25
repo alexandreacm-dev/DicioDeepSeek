@@ -10,6 +10,8 @@ import NotFoundWord from "@/app/assets/images/noWord.svg";
 import DeepSeek from "@/app/assets/images/deepseek.svg";
 import Feather from "@expo/vector-icons/Feather";
 
+import { DEEPSEEK_LOCAL_API_URL } from "@/app/constants";
+
 import * as S from "./styles";
 
 type FlatListItemProp = {
@@ -18,12 +20,13 @@ type FlatListItemProp = {
 
 export default function Meaning() {
   const { colors } = useTheme();
-
   const { word } = useAppContext();
 
-  const [definition, setDefinition] = useState<ISearch>({} as ISearch);
+  const [definition, setDefinition] = useState("");
   const [nextWords, setNextWords] = useState<INextWords>({} as INextWords);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [searchIA, setSearchIA] = useState(false);
 
   const selectedWord = word.toLowerCase();
   const baseUrls = [
@@ -33,10 +36,11 @@ export default function Meaning() {
   ];
 
   useEffect(() => {
-    async function loadData() {
+    async function feetDictionaryData() {
       if (!word) return;
 
       setLoading(true);
+      setSearchIA(false);
 
       try {
         const response = await Promise.all(baseUrls.map((url) => fetch(url)));
@@ -45,7 +49,22 @@ export default function Meaning() {
         );
 
         if (data) {
-          setDefinition(data[0][0]);
+          let content = data[0][0] as ISearch;
+
+          if (content) {
+            let idxStart = content.xml.indexOf("<def>");
+            const defContent = content.xml.slice(idxStart);
+            const def = defContent
+              .replace("<def>", "")
+              .replace("</def>", "")
+              .replace("<sense>", "")
+              .replace("</sense>", "")
+              .replace("<entry>", "")
+              .replace("</entry>", "");
+            // console.log(content);
+
+            setDefinition(def);
+          }
           setNextWords(data[2]);
         }
       } catch (error) {
@@ -55,7 +74,7 @@ export default function Meaning() {
       }
     }
 
-    loadData();
+    feetDictionaryData();
   }, []);
 
   const renderItem = ({ item }: FlatListItemProp) => (
@@ -77,20 +96,69 @@ export default function Meaning() {
     </S.NextWordsContainer>
   );
 
+  async function handleSearchDeepSeek() {
+    if (!word) return;
+
+    setLoading(true);
+    setSearchIA(true);
+
+    try {
+      const response = await fetch(`${DEEPSEEK_LOCAL_API_URL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "deepseek-r1:1.5b",
+          frequency_penalty: 0,
+          max_tokens: 300,
+          response_format: {
+            type: "json",
+          },
+          stream: false,
+          temperature: 1,
+          messages: [
+            {
+              role: "user",
+              content: `Buscar no dicionário ${word}`,
+            },
+          ],
+        }),
+      });
+
+      const data = await response.json();
+
+      setDefinition(data.message.content);
+    } catch (error) {
+      setError("Não foi possível conectar à API do DeepSeek.");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (loading) {
+    return (
+      <S.Container>
+        <ActivityIndicator size="large" color="#2e0f0f" />
+      </S.Container>
+    );
+  }
+
   return (
     <S.Container>
       {!definition ? (
         <S.NoContentContainer>
           <NotFoundWord width={200} height={200} />
           <Text
-            type="primaryTitle"
+            type="title"
             style={{
               textAlign: "center",
             }}
           >
             Não encontramos nada relacionado a essa palavra
           </Text>
-          <S.PressableButton>
+          <S.PressableButton onPress={handleSearchDeepSeek}>
             <S.IconContainer>
               <Feather name="search" size={30} color={colors.buttonColor} />
             </S.IconContainer>
@@ -110,19 +178,10 @@ export default function Meaning() {
         </S.NoContentContainer>
       ) : (
         <>
-          {loading ? (
-            <ActivityIndicator size="large" color="#CDCDCD" />
-          ) : (
-            <>
-              <S.WebViewContainer
-                style={{
-                  width: "100%",
-                  height: "20%",
-                }}
-              >
-                <WebView source={{ html: definition?.xml || "" }} />
-              </S.WebViewContainer>
+          <S.DefinitionArea value={definition} multiline />
 
+          {!searchIA && (
+            <>
               <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (

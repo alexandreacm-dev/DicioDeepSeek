@@ -17,7 +17,12 @@ const HeaderVerbDetail: React.FC<Props> = ({ selectedWord }) => {
 
   const handleVerbDetail = () => {
     setWord(search as string);
-    router.replace("/search");
+    router.replace({
+      pathname: "/search",
+      params: {
+        selectedWord: search,
+      },
+    });
   };
 
   return (

@@ -26,7 +26,7 @@ const NextWordsContainer = styled.View<ViewProps>`
 
 const WebViewContainer = styled.View`
   width: 100%;
-  height: 20%;
+  height: 35%;
 `;
 
 const PageContainer = styled.View`
@@ -41,7 +41,7 @@ const PageContainer = styled.View`
 const NoContentContainer = styled.View`
   ${({ theme }: ThemeProp) => css`
     flex: 1;
-    padding: 10px;
+    padding: 20px;
     background-color: ${({ theme }) => theme.colors.background};
     justify-content: flex-start;
     align-items: center;
@@ -72,6 +72,26 @@ const PressableButton = styled.TouchableOpacity.attrs({
    background-color: ${({ theme }) => theme.colors.secondaryColor};
    margin-top: 10px;
 `
+const ErrorContainer = styled.View`
+  ${({ theme }: ThemeProp) => css`
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f5e50970;
+    justify-content: center;
+    align-items: center;
+  `}
+`;
+
+const DefinitionArea = styled.TextInput`
+   flex: 1;
+   padding: 14px;
+   background-color: #FFF;
+   ${({ theme }: ThemeProp) => css`
+    font-family: ${({ theme }) => theme.fonts.Inter_400_Regular};
+    font-size: 15px;
+   `}
+`;
 
 export {
   Container,
@@ -81,5 +101,7 @@ export {
   NoContentContainer,
   PressableButton,
   ButtonContainer,
-  IconContainer
+  IconContainer,
+  ErrorContainer,
+  DefinitionArea
 }
