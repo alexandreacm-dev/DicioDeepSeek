@@ -85,6 +85,16 @@ install ollama by homebrew or package
 ollama run deepseek-r1:1.5b
 ```
 
+Use localhost **http://127.0.0.1:11434/api/chat** to execute tests with DeepSeek IA.
+
+```
+{
+	"model": "deepseek-r1:1.5b",
+	"messages": [{ "role": "user", "content": "significado da palavra brusque" }],
+	"stream": false
+}
+```
+
 <br />
 
 # Project Structure
