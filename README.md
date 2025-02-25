@@ -38,12 +38,6 @@ An example of Portuguese dictionary to search words by Api and on DeepSeek IA.
 
 ## Running the project
 
-### Run Expo Environment
-
-```
-npx expo start / yarn start -c
-```
-
 **Install dependencies**
 
 ```
@@ -56,16 +50,24 @@ npm / yarn
 cd ios && pod install
 ```
 
+### Run Expo Environment
+
+```
+npx expo start / yarn start -c
+```
+
+### Run RN CLI Environment
+
 **Run IOS**
 
 ```
-yarn ios
+yarn ios / npx run:ios
 ```
 
 **Run Android**
 
 ```
-yarn android
+yarn android / npx run:android
 ```
 
 ## Running the tests
@@ -78,7 +80,7 @@ yarn test
 
 ### Test with DeepSeek IA
 
-Use **ollama** to execute tests with DeepSeek IA.
+Use **ollama** to execute tests with DeepSeek IA locally.
 
 ```
 install ollama by homebrew or package
