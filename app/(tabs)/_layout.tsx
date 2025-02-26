@@ -3,7 +3,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-import { Colors } from "../constants/Colors";
+import Colors from "../constants/Colors";
 import { View } from "react-native";
 
 export default function TabLayout() {
