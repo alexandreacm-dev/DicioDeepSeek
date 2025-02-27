@@ -17,8 +17,6 @@ type ItemProps = {
   item: Item;
 };
 
-const deeSeekApikey = "sk-6fc96568de8d447eb09d6c60f8cab23e";
-
 export default function Definition() {
   const [randomNumber, setRandomNumber] = useState(0);
   const { setWord } = useAppContext();
