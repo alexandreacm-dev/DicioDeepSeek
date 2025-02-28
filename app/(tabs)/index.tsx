@@ -3,10 +3,15 @@ import { FlatList, ScrollView, View } from "react-native";
 import Header from "@/app/components/Header";
 import { Text } from "../components/Text";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
-import { randomWordsApi, dayWord, mostSearched } from "../constants/mock-api";
+import {
+  randomWordsApi,
+  mockDayWord,
+  mostSearched,
+  mockWordsWithFive,
+} from "../constants/mock-api";
 import { router } from "expo-router";
-import * as S from "./styles";
 import { useAppContext } from "../contexts/app.context";
+import * as S from "./styles";
 
 interface Item {
   id: number;
@@ -26,11 +31,12 @@ export default function Definition() {
   };
 
   const handleDetailVerb = () => {
-    setWord("");
+    setWord(mockDayWord.word);
+
     router.push({
       pathname: "/search",
       params: {
-        selectedWord: dayWord,
+        selectedWord: mockDayWord.word,
       },
     });
   };
@@ -59,7 +65,6 @@ export default function Definition() {
           <Text type="date">21 de Fevereiro</Text>
         </S.TitleContainer>
         <S.WordDayContainer
-          onPress={handleDetailVerb}
           style={{
             shadowColor: "#000",
             shadowOffset: {
@@ -73,14 +78,13 @@ export default function Definition() {
           }}
         >
           <Text type="title" style={{ color: "#063859" }}>
-            {dayWord}
+            {mockDayWord.word}
           </Text>
 
-          <Text type="subtitle">Substantivo feminino plural</Text>
+          <Text type="subtitle">{mockDayWord.type}</Text>
 
           <Text style={{ marginBottom: 35, marginTop: 10 }}>
-            Prêmio que se dá a quem traz boas novidades ou entrega coisa perdida
-            ao dono
+            {mockDayWord.description}
           </Text>
         </S.WordDayContainer>
         <S.TouchableSeeMeans
@@ -124,7 +128,6 @@ export default function Definition() {
               width={6}
               fill={randomNumber * randomWordsApi.length + 20}
               tintColor="#bcbaba"
-              onAnimationComplete={() => console.log("onAnimationComplete")}
               backgroundColor="#FFF"
             >
               {(fill) => (
@@ -196,6 +199,42 @@ export default function Definition() {
           >
             <FlatList
               data={mostSearched}
+              renderItem={({ item }) => renderItem({ item })}
+              keyExtractor={(item) => String(item.id)}
+              numColumns={2}
+            />
+          </ScrollView>
+        </S.MostSearchedContainer>
+
+        <S.TitleContainer>
+          <Text type="primaryTitle" style={{ marginTop: 20 }}>
+            Palavras com 5 letras
+          </Text>
+        </S.TitleContainer>
+        <S.MostSearchedContainer
+          style={{
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5,
+          }}
+        >
+          <ScrollView
+            horizontal
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              width: "100%",
+            }}
+          >
+            <FlatList
+              data={mockWordsWithFive}
               renderItem={({ item }) => renderItem({ item })}
               keyExtractor={(item) => String(item.id)}
               numColumns={2}

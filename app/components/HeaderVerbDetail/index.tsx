@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { router, useRouter } from "expo-router";
 import DicioLogo from "@/app/assets/images/dicio-logo.svg";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
@@ -6,21 +6,24 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import * as S from "./styles";
 import { useAppContext } from "@/app/contexts/app.context";
 
-type Props = {
-  selectedWord: string | string[];
-};
+// type Props = {
+//   selectedWord: string | string[];
+// };
 
-const HeaderVerbDetail: React.FC<Props> = ({ selectedWord }) => {
+const HeaderVerbDetail: React.FC = () => {
+  const { word, setWord } = useAppContext();
   const { back } = useRouter();
-  const [search, setSearch] = useState(selectedWord);
-  const { setWord } = useAppContext();
+  const [search, setSearch] = useState(word);
 
   const handleVerbDetail = () => {
-    setWord(search as string);
+    if (!search) return;
+
+    setWord(search);
+
     router.replace({
       pathname: "/search",
       params: {
-        selectedWord: search,
+        selectedWord: word,
       },
     });
   };

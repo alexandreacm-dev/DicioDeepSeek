@@ -1,13 +1,11 @@
-import { useLocalSearchParams } from "expo-router";
 import HeaderVerbDetail from "../components/HeaderVerbDetail";
 import MaterialTopTabs from "./components/MaterialTopTabs";
+// import { useLocalSearchParams } from "expo-router";
 
 export default function Search() {
-  const { selectedWord } = useLocalSearchParams();
-
   return (
     <>
-      <HeaderVerbDetail selectedWord={selectedWord} />
+      <HeaderVerbDetail />
       <MaterialTopTabs />
     </>
   );

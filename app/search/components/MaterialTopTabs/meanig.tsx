@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { WebView } from "react-native-webview";
 import { useAppContext } from "@/app/contexts/app.context";
 import { useTheme } from "styled-components/native";
@@ -36,7 +36,7 @@ export default function Meaning() {
   ];
 
   useEffect(() => {
-    async function feetDictionaryData() {
+    async function fetchData() {
       if (!word) return;
 
       setLoading(true);
@@ -74,7 +74,7 @@ export default function Meaning() {
       }
     }
 
-    feetDictionaryData();
+    fetchData();
   }, []);
 
   const renderItem = ({ item }: FlatListItemProp) => (
@@ -151,7 +151,7 @@ export default function Meaning() {
         <S.NoContentContainer>
           <NotFoundWord width={200} height={200} />
           <Text
-            type="title"
+            type="primaryTitle"
             style={{
               textAlign: "center",
             }}

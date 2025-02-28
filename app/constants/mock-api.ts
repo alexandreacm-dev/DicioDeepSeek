@@ -50,4 +50,31 @@ export const mostSearched = [
     }
 ];
 
-export const dayWord = 'alvíssaras'
+export const mockDayWord = {
+    word: 'barco',
+    type: 'Substantivo masculino',
+    description: 'Embarcação pequenas: barco a vala.'
+}
+
+export const mockWordsWithFive = [
+    { id: 1, word: "sagaz" },
+    { id: 2, word: "âmago" },
+    { id: 3, word: "negro" },
+    { id: 4, word: "termo" },
+    { id: 5, word: "êxito" },
+    { id: 6, word: "mexer" },
+    { id: 7, word: "nobre" },
+    { id: 8, word: "senso" },
+    { id: 9, word: "afeto" },
+    { id: 10, word: "ética" },
+    { id: 11, word: "algoz" },
+    { id: 12, word: "plena" },
+    { id: 13, word: "fazer" },
+    { id: 14, word: "assim" },
+    { id: 15, word: "tênue" },
+    { id: 16, word: "mútua" },
+    { id: 17, word: "sobre" },
+    { id: 18, word: "vigor" },
+    { id: 19, word: "aquém" },
+    { id: 20, word: "seção" }
+];

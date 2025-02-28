@@ -11,7 +11,10 @@ export default function Header() {
   const { push } = useRouter();
 
   const handleVerbDetail = () => {
+    if (!search) return;
+
     setWord(search);
+
     push({
       pathname: "/search",
       params: {
